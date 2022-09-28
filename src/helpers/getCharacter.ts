@@ -6,6 +6,6 @@ export const getCharacters = async () => {
     const hash = 'e80609e0fa302d6ea49e3653db01c88e';
     const response = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?ts=${ts}&apikey=${apiKey}&hash=${hash}`);
     const { results } = response.data.data;
+    console.log(results);
     return results;
-    
 }
