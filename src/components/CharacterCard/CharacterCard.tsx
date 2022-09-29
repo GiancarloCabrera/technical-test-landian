@@ -1,6 +1,7 @@
-import React from 'react'
-import { Card, CardTitle, Row, Col } from 'reactstrap'
-import './characterCard.css'
+import React from 'react';
+import { Card, CardTitle, Row, Col } from 'reactstrap';
+import './characterCard.css';
+import PropTypes from "prop-types";
 
 export const CharacterCard = ({urlImg, name, fav}: any) => {
   return (
@@ -23,4 +24,9 @@ export const CharacterCard = ({urlImg, name, fav}: any) => {
       </Card>
     </React.Fragment>
   )
+}
+
+CharacterCard.propTypes = {
+  urlImg: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
 }

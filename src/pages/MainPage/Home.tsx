@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import { CharacterCard } from '../../components/CharacterCard/CharacterCard';
-import { Navbar } from '../../components/Navbar/Navbar';
 import { getCharacters } from '../../helpers/getCharacter';
 import { Row, Col } from 'reactstrap';
 import './home.css';
@@ -25,7 +24,6 @@ export const Home = () => {
   
   return (
     <React.Fragment>
-      <Navbar/>
       <div className='content-page'>
         <Row>
           <h1 className='display-2'>Characters</h1>
