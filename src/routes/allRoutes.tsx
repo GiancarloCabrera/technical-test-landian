@@ -12,7 +12,6 @@ interface RouteProps {
 
 const routes: Array<RouteProps> = [
     { path: '/error404', component: Error },
-    { path: '/loader', component: Loader},
     // { path: '/details', component: Details },
     { path: '/home', component: Home },
     //This route has to be kept here, being the last one

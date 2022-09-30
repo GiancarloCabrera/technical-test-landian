@@ -6,6 +6,7 @@ import { Row, Col } from 'reactstrap';
 import { Details } from '../Details/Details';
 import './home.css';
 import { Navbar } from '../../components/Navbar/Navbar';
+import { Loader } from '../../components/Loader/Loader';
 
 export const Home = () => {
   const [characters, setCharacters] = useState({
@@ -20,7 +21,7 @@ export const Home = () => {
         data: char,
         loading: false
       });
-    })
+    }).catch((err) => console.log(err))
   },[])
 
   const [detailStatus, setDetailStatus] = useState(false)
@@ -35,37 +36,41 @@ export const Home = () => {
   return (
     <React.Fragment>
       <Navbar/>
-      <div className='content-page'>
-        {!detailStatus ?
-          <>
-            <Row>
-              <h1 className='display-2'>Characters</h1>
-              <hr className='bar'/>
-            </Row>     
-            <Row xs='3'>
-                {characters.data.map((char: any) => {
-                  // const url = char.urls[0].url;
-                  const urlImg = char.thumbnail;
-                  console.log("OBJ: ",char)
-                  return (
-                    <Col>
-                        <CharacterCard 
-                          key={char.id}
-                          urlImg={`${urlImg.path}.${urlImg.extension}`}
-                          name={char.name} 
-                          clickEvent={() => onClickChar(char)} 
-                        /> 
-                    </Col>   
-                  )
-                })}   
-            </Row>
-          </>
-          :
-          <>        
-            <Details charObj={charDetail} />
-          </>
-        } 
-      </div>     
+        {!characters.loading ?
+          <div className='content-page'>
+            {!detailStatus ?
+              <>
+                <Row>
+                  <h1 className='display-2'>Characters</h1>
+                  <hr className='bar'/>
+                </Row>     
+                <Row xs='3'>
+                    {characters.data.map((char: any) => {
+                      // const url = char.urls[0].url;
+                      const urlImg = char.thumbnail;
+                      console.log("OBJ: ",char)
+                      return (
+                        <Col>
+                            <CharacterCard 
+                              key={char.id}
+                              urlImg={`${urlImg.path}.${urlImg.extension}`}
+                              name={char.name} 
+                              clickEvent={() => onClickChar(char)} 
+                            /> 
+                        </Col>   
+                      )
+                    })}   
+                </Row>
+              </>
+              :
+              <>        
+                <Details charObj={charDetail} />
+              </>
+            }
+          
+          </div> 
+          : <Loader/>
+        }          
     </React.Fragment >
   )
 }
