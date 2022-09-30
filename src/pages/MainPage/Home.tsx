@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import { CharacterCard } from '../../components/CharacterCard/CharacterCard';
 import { getCharacters } from '../../helpers/getCharacter';
 import { Row, Col } from 'reactstrap';
+import { Details } from '../Details/Details';
 import './home.css';
+import { Navbar } from '../../components/Navbar/Navbar';
 
 export const Home = () => {
-  // getCharacters().then(s => console.log(s));
   const [characters, setCharacters] = useState({
     data: [],
     loading: true
@@ -21,30 +22,49 @@ export const Home = () => {
       });
     })
   },[])
+
+  const [detailStatus, setDetailStatus] = useState(false)
+  const [charDetail, setCharDetail] = useState({});
+
+  const onClickChar = (charObj: any) => {
+    console.log('hola')
+    setCharDetail(charObj);
+    setDetailStatus(!detailStatus);
+  }
   
   return (
     <React.Fragment>
+      <Navbar/>
       <div className='content-page'>
-        <Row>
-          <h1 className='display-2'>Characters</h1>
-          <hr className='bar'/>
-        </Row>     
-        <Row xs='3'>
-            {characters.data.map((char: any) => {
-              // const url = char.urls[0].url;
-              const urlImg = char.thumbnail;
-              console.log("OBJ: ",char)
-              return (
-                <Col>
-                  <CharacterCard 
-                    key={char.id}
-                    urlImg={`${urlImg.path}.${urlImg.extension}`}
-                    name={char.name}  
-                  />    
-                </Col>   
-              )
-            })}   
-        </Row>
+        {!detailStatus ?
+          <>
+            <Row>
+              <h1 className='display-2'>Characters</h1>
+              <hr className='bar'/>
+            </Row>     
+            <Row xs='3'>
+                {characters.data.map((char: any) => {
+                  // const url = char.urls[0].url;
+                  const urlImg = char.thumbnail;
+                  console.log("OBJ: ",char)
+                  return (
+                    <Col>
+                        <CharacterCard 
+                          key={char.id}
+                          urlImg={`${urlImg.path}.${urlImg.extension}`}
+                          name={char.name} 
+                          clickEvent={() => onClickChar(char)} 
+                        /> 
+                    </Col>   
+                  )
+                })}   
+            </Row>
+          </>
+          :
+          <>        
+            <Details charObj={charDetail} />
+          </>
+        } 
       </div>     
     </React.Fragment >
   )

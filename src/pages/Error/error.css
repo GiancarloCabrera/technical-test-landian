@@ -1,0 +1,45 @@
+.page-content{
+    background-color: #8aac7a;
+    height: 100vh;
+    position: relative;
+}
+
+.img-bakcground{
+    position: absolute;
+    width: 15%;
+    height: 45%;
+    left: 650px;
+    top: 80px;
+}
+
+.title{
+    color: white;
+    position: absolute;
+    left: 45%;
+    top: 60%;
+    text-align: center;
+}
+
+.text-content{
+    color: white;
+    position: absolute;
+    left: 37%;
+    top: 68%
+}
+
+.circle-error{
+    background-color: #bbdea4;
+    position: absolute;
+    color: #bbdea4;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    left: 40%;
+    top: 10%
+}
+
+.home-boton{
+    position: absolute;
+    left: 48%;
+    top: 80%
+}

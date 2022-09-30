@@ -1,4 +1,5 @@
 import { Navigate } from "react-router-dom";
+import { Loader } from "../components/Loader/Loader";
 import { Details } from '../pages/Details/Details';
 import { Error } from '../pages/Error/Error';
 import { Home } from '../pages/MainPage/Home';
@@ -11,7 +12,8 @@ interface RouteProps {
 
 const routes: Array<RouteProps> = [
     { path: '/error404', component: Error },
-    { path: '/details', component: Details },
+    { path: '/loader', component: Loader},
+    // { path: '/details', component: Details },
     { path: '/home', component: Home },
     //This route has to be kept here, being the last one
     { path: '/', component: () => <Navigate to='/home'/> }

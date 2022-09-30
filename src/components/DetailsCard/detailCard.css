@@ -1,0 +1,11 @@
+.card-detail{
+    margin: 10px;
+    border-radius: 3%;
+    height: 250px !important;
+    width: 250px !important;
+}
+
+.img-detail{
+    width: 100% !important;
+    height: 50% !important;
+}
