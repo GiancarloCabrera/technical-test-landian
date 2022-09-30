@@ -4,31 +4,31 @@ import { CharacterCard } from '../../components/CharacterCard/CharacterCard';
 import { getCharacters } from '../../helpers/getCharacter';
 import { Row, Col } from 'reactstrap';
 import { Details } from '../Details/Details';
-import './home.css';
 import { Navbar } from '../../components/Navbar/Navbar';
 import { Loader } from '../../components/Loader/Loader';
+import './home.css';
 
 export const Home = () => {
+  const [detailStatus, setDetailStatus] = useState(false)
+  const [charDetail, setCharDetail] = useState({});
   const [characters, setCharacters] = useState({
     data: [],
     loading: true
   });
   
   useEffect(() => {
-    getCharacters().then((char) => {
-      console.log('CHAR: ',char)
-      setCharacters({
-        data: char,
-        loading: false
-      });
-    }).catch((err) => console.log(err))
+    getCharacters()
+      .then((char) => {
+        console.log('CHAR: ',char)
+        setCharacters({
+          data: char,
+          loading: false
+        });
+      })
+        .catch((err) => console.log(err))
   },[])
 
-  const [detailStatus, setDetailStatus] = useState(false)
-  const [charDetail, setCharDetail] = useState({});
-
   const onClickChar = (charObj: any) => {
-    console.log('hola')
     setCharDetail(charObj);
     setDetailStatus(!detailStatus);
   }
@@ -37,9 +37,9 @@ export const Home = () => {
     <React.Fragment>
       <Navbar/>
         {!characters.loading ?
-          <div className='content-page'>
+          <>
             {!detailStatus ?
-              <>
+              <div className='content-page'>
                 <Row>
                   <h1 className='display-2'>Characters</h1>
                   <hr className='bar'/>
@@ -61,14 +61,17 @@ export const Home = () => {
                       )
                     })}   
                 </Row>
-              </>
+                </div> 
               :
               <>        
-                <Details charObj={charDetail} />
+                <Details 
+                  charObj={charDetail} 
+                  detailStatus={detailStatus}
+                  detailStatusChange={setDetailStatus}  
+                />
               </>
             }
-          
-          </div> 
+          </>
           : <Loader/>
         }          
     </React.Fragment >

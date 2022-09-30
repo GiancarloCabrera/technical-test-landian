@@ -1,8 +1,7 @@
-import React from 'react'
 import './loader.css';
 
 export const Loader = () => {
-    //integrar la foto DE SPIDEMANNNNNNNNNNNNNNNNNNNNNNNNNNNN
+
   return (
     <div className='loader-content' id='container'>
         <div className='loader-circle' id='circle'></div>

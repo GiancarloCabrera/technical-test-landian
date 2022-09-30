@@ -14,12 +14,9 @@
     height: 40px;
     width: 120px;
     margin-right: 10px;
-    /* position: absolute; */
-
 }
 
-.title{
-    /* color: white; */
-    margin-left: 10px;
-    /* position: absolute; */
+.title-app{
+    font-family: fantasy;
+    font-size: 100px;
 }

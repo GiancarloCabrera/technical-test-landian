@@ -28,9 +28,10 @@
   height:60px;
   position: absolute;
   left:50%;
-  top:80%;
+  top:75%;
   transform: translate(-50%, -50%);
 }
+
 .circle{
   width:20px;
   height:20px;
@@ -58,15 +59,18 @@
       top:0%;
   }
 }
+
 .circle:nth-child(2){
   left:45%;
   animation-delay: .2s;
 }
+
 .circle:nth-child(3){
   left:auto;
   right:15%;
   animation-delay: .3s;
 }
+
 .shadow{
   width:20px;
   height:4px;
@@ -94,15 +98,18 @@
       opacity: .4;
   }
 }
+
 .shadow:nth-child(4){
   left: 45%;
   animation-delay: .2s
 }
+
 .shadow:nth-child(5){
   left:auto;
   right:15%;
   animation-delay: .3s;
 }
+
 .wrapper span{
   position: absolute;
   top:75px;

@@ -1,25 +1,15 @@
-import React from 'react';
-import { Card, CardBody, CardTitle, Row } from 'reactstrap';
 import PropTypes from "prop-types";
 import './detailCard.css';
 
-export const DetailCard = ({title, urlImg}: any) => {
-  return (
-    <React.Fragment>
-        <Card className='card-detail'>
-            <CardBody>
-                <Row>
-                    <img alt='' src={urlImg} className='img-detail'/>
-                </Row>
-                <Row>
-                    <CardTitle>
-                        <h4>{title}</h4>
-                    </CardTitle>
-                </Row>
-            </CardBody>
-        </Card>
-    </React.Fragment>
-  )
+export const DetailCard = ({ title, urlImg }: any) => {
+    return (
+        <>
+            <div className="card" style={{ width: '15rem', margin: '7px'}}>
+                <img src={urlImg} className="img-detail" alt="..." />
+                    <h5 className="title-detail">{title}</h5>
+            </div>
+        </>
+    )
 }
 
 DetailCard.propTypes = {

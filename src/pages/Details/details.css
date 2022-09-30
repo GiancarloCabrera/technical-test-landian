@@ -1,5 +1,31 @@
 .char-img{
-    max-height: 500px;
-    width: 100%;
+    height: 400px;
+    width: 400px;
     border-radius: 3%;
+    position: relative;
+    margin: 15px;
+    box-shadow: 10px 10px 10px -4px rgb(65, 64, 64);
+}
+
+.container-detail{
+    font-family: 'Noto Sans Mono', monospace;
+    padding: 50px 200px;
+}
+
+.series-details{
+    margin: 50px;
+}
+
+.btn-home{
+    position: absolute;
+    z-index: 1;
+    left: 12%;
+    top: 17%;
+    width: 200px !important;
+    height: 35px !important;
+}
+
+.original-img{
+    display: flex;
+    justify-content: center;
 }
