@@ -1,11 +1,18 @@
-import React from 'react'
-import { Card, CardTitle, Row, Col } from 'reactstrap'
-import './characterCard.css'
+import React from 'react';
+import { Card, CardTitle, Row, Col } from 'reactstrap';
+import PropTypes from "prop-types";
+import './characterCard.css';
 
-export const CharacterCard = ({urlImg, name, fav}: any) => {
+
+export const CharacterCard = ({urlImg, name, clickEvent, fav}: any) => {
   return (
     <React.Fragment>
-      <Card className='char-card'>
+      <Card 
+        className='char-card' 
+        onClick={(e) => {
+          // e.preventDefault();
+          clickEvent();
+        }}>
         <Row>
           {/* RESOLVER LOS BORDES DE LA IMAGEN */}
           <img alt='' src={urlImg} className='char-image'/>
@@ -23,4 +30,10 @@ export const CharacterCard = ({urlImg, name, fav}: any) => {
       </Card>
     </React.Fragment>
   )
+}
+
+CharacterCard.propTypes = {
+  urlImg: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  clickEvent: PropTypes.func.isRequired
 }
