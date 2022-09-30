@@ -1,12 +1,26 @@
-import React from 'react';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route    
+} from "react-router-dom";
+import { routes } from './routes/allRoutes';
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <h1>App</h1>
-    </div>
-  );
+    <Router>
+       <div>
+        <Routes>
+          {routes.map((route, i) => {
+            return(
+            <Route 
+              key={i}
+              path={route.path} 
+              element={ <route.component/> }
+            />
+          )})}
+          
+        </Routes>
+       </div> 
+    </Router>
+  )
 }
-
-export default App;
