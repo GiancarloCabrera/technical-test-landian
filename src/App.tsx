@@ -11,7 +11,6 @@ export const App = () => {
        <div>
         <Routes>
           {routes.map((route, i) => {
-            console.log(route)
             return(
             <Route 
               key={i}

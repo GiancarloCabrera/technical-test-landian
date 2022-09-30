@@ -17,7 +17,6 @@ export const Details = ({ charObj, detailStatus, detailStatusChange }: any) => {
   useEffect(() => {
     getSeries(charObj.id)
       .then((e) => {
-        console.log(e)
         setSeries(e);
       })
       .catch((err) => console.log(err))

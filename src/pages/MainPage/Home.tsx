@@ -19,7 +19,6 @@ export const Home = () => {
   useEffect(() => {
     getCharacters()
       .then((char) => {
-        console.log('CHAR: ',char)
         setCharacters({
           data: char,
           loading: false
@@ -45,12 +44,11 @@ export const Home = () => {
                   <hr className='bar'/>
                 </Row>     
                 <Row xs='3'>
-                    {characters.data.map((char: any) => {
+                    {characters.data.map((char: any, i: any) => {
                       // const url = char.urls[0].url;
                       const urlImg = char.thumbnail;
-                      console.log("OBJ: ",char)
                       return (
-                        <Col>
+                        <Col key={i}>
                             <CharacterCard 
                               key={char.id}
                               urlImg={`${urlImg.path}.${urlImg.extension}`}
